@@ -11,7 +11,7 @@ type ExceptionCapturerMock struct {
 	CaughtError error
 }
 
-func (ec *ExceptionCapturerMock) CaptureException(err error) *string {
+func (ec *ExceptionCapturerMock) CaptureException(err error) *grpc_sentry.EventID {
 	ec.CaughtError = err
 
   return nil
