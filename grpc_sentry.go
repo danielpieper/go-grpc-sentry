@@ -2,14 +2,14 @@ package grpc_sentry
 
 import (
 	"context"
+
+	"github.com/getsentry/sentry-go"
 	"google.golang.org/grpc"
 )
 
-type EventID string
-
 // ExceptionCapturer specifies the implementation of a method to capture the given error
 type ExceptionCapturer interface {
-	CaptureException(err error) *EventID
+	CaptureException(err error) *sentry.EventID
 }
 
 // UnaryServerInterceptor creates an interceptor which catches the errors from each service method and reports them to Sentry

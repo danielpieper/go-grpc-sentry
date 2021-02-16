@@ -4,17 +4,19 @@ import (
 	"context"
 	"errors"
 	"testing"
-  "github.com/danielpieper/go-grpc-sentry"
+
+	"github.com/danielpieper/go-grpc-sentry"
+	"github.com/getsentry/sentry-go"
 )
 
 type ExceptionCapturerMock struct {
 	CaughtError error
 }
 
-func (ec *ExceptionCapturerMock) CaptureException(err error) *grpc_sentry.EventID {
+func (ec *ExceptionCapturerMock) CaptureException(err error) *sentry.EventID {
 	ec.CaughtError = err
 
-  return nil
+	return nil
 }
 
 func Test_UnaryServerInterceptor(t *testing.T) {
