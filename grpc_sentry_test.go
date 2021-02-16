@@ -11,8 +11,10 @@ type ExceptionCapturerMock struct {
 	CaughtError error
 }
 
-func (ec *ExceptionCapturerMock) CaptureException(err error) {
+func (ec *ExceptionCapturerMock) CaptureException(err error) *string {
 	ec.CaughtError = err
+
+  return nil
 }
 
 func Test_UnaryServerInterceptor(t *testing.T) {

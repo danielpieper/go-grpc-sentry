@@ -7,7 +7,7 @@ import (
 
 // ExceptionCapturer specifies the implementation of a method to capture the given error
 type ExceptionCapturer interface {
-	CaptureException(err error)
+	CaptureException(err error) *string
 }
 
 // UnaryServerInterceptor creates an interceptor which catches the errors from each service method and reports them to Sentry
